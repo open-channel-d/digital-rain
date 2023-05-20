@@ -1,6 +1,10 @@
 # digital-rain
 Animation of colored falling symbols (also known as Matrix digital rain) for Linux terminal.
 
+<center>
+ <img src="images/matrix-rain-2.gif">
+</center>
+
 ## Building
 ```
 $ # inside the project root:

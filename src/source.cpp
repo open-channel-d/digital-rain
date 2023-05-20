@@ -9,7 +9,7 @@
 #include <unistd.h>
 #include "ColoredPrint.h"
 
-std::string letters = "ABCDEFGHIJKLMNOPQRSTWUVXYZ";
+std::string letters = "ABCDEFGHIJKLMNOPQRSTWUVXYZ1234567890";
 
 Color colorFromString(const std::string &str) {
 	if (str == "black") {
@@ -133,7 +133,6 @@ private:
 	int weight;
 	int height;
 	std::vector<std::shared_ptr<RainDrop>> drops;
-	Color color;
 	std::vector<Color> colors;
 };
 
@@ -149,8 +148,8 @@ int main(int argc, char *argv[]) {
 	else {
 		colors.push_back(GREEN);
 	}
-    struct winsize w;
-    ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+	struct winsize w;
+	ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
 	Field field(w.ws_col, w.ws_row, colors);
 	field.addRandom();
 	while (true) {
@@ -160,7 +159,7 @@ int main(int argc, char *argv[]) {
 		if (rand() % 3) {
 			field.addRandom();
 		}
-		std::this_thread::sleep_for(std::chrono::milliseconds(60));
+		std::this_thread::sleep_for(std::chrono::milliseconds(80));
 	}
 	return 0;
 }
